@@ -1,0 +1,41 @@
+Q) What is the difference between C++ and Java?
+
+C++						Java
+-------						--------
+It is developed by Bjarne Stroustrup.		It is developed by James Gosling.
+
+It is partial object oriented programming 	It is purely object oriented programming 
+language.					language.
+
+It is a platform dependent.			It is platform independent.
+
+Memory allocation and deallocation will 	Memory allocation and deallocation will taken
+taken care by a programmer.			care by JVM.
+
+It supports multiple inheritance.		It does not support multiple inheritance.
+
+It supports pointers.				It does not support pointers.
+
+It supports goto statement.			It does not support goto statement.
+
+It supports preprocessor directory (#).		It does not support preprocessor directory (#).
+
+It contains three access specifiers i.e 	It contains four access modifiers i.e default, 
+public,private and protected.			public,private and protected.
+
+We have three types of loops i.e do while 	We have four types of loops i.e do while loop, 
+loop, while loop and for loop.			while loop, for loop and for each loop.
+
+To save C++ program we will use .cpp extension.	To save java program we will use .java extension.
+
+
+
+
+
+
+
+
+
+
+
+

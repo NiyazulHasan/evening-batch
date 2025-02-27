@@ -1,0 +1,666 @@
+Loop patterns
+==============
+1)
+
+1 1 1 1 
+2 2 2 2
+3 3 3 3 
+4 4 4 4 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+
+2) 
+
+* * * * 
+* * * * 
+* * * * 
+* * * * 
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+3) 
+
+* * * * 
+*     *
+*     *
+* * * * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==1 || i==4 || j==1 || j==4)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+4)
+* - - - 
+- * - - 
+- - * - 
+- - - * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==j)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+5)
+* - - - * 
+- * - * - 
+- - * - - 
+- * - * - 
+* - - - * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==j || i+j==6)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+6)
+    *
+    * 
+* * * * * 
+    *
+    * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==3 || j==3)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Left side loop patterns
+=======================
+1)
+
+1
+2 2 
+3 3 3 
+4 4 4 4 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+2)
+
+*
+* * 
+* * * 
+* * * * 
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+3)
+
+1
+2 3 
+4 5 6 
+7 8 9 0 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int k=1;
+
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				if(k<=9)
+					System.out.print(k++ +" ");
+				else
+					System.out.print("0 ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+4)
+2
+4  6
+8  10 12
+14 16 18 20
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int k=2;
+
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(k+" ");
+
+				k = k + 2;
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+
+Right side loop patterns
+=====================
+
+1)
+      1
+    2 2 
+  3 3 3 
+4 4 4 4
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+2) 
+
+4 4 4 4
+  3 3 3
+    2 2 
+      1 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+Pyramid loop patterns
+=====================
+1) 
+      1
+    1 2 1 
+  1 2 3 2 1 
+1 2 3 4 3 2 1
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+
+2)
+
+      * 
+    * * * 
+  * * * * * 
+* * * * * * * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+3)
+
+6 5 4 3 2 1 
+ 6 5 4 3 2 
+  6 5 4 3 
+   6 5 4 
+    6 5
+     6  
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=6;i++)
+		{
+			//space 
+			for(int j=1;j<i;j++)
+			{
+				System.out.print(" ");
+			}
+
+			//elements
+			for(int j=6;j>=i;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line 
+			System.out.println(" ");
+		}
+	}
+}
+
+4)
+1             1
+1 2         2 1  
+1 2 3     3 2 1 
+1 2 3 4 4 3 2 1
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int rows=4;
+		//rows
+		for(int i=1;i<=rows;i++)
+		{
+			//left side
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//space 
+			for(int j=1;j<=(rows-i)*2;j++)
+			{
+				System.out.print("  ");
+			}
+
+			//right side
+			for(int j=i;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+3) Jump statement
+==================
+Jump statement is used to jump from one section of code to another section.
+We have three types of jump statements.
+
+1) break stmt 
+
+2) continue stmt 
+
+3) return stmt 
+
+1) break stmt 
+--------------
+It is used to break the execution of loops and switch case.
+
+For conditional statement we can use if condition.
+
+syntax:
+------
+	break;
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+
+			System.out.print(i+" ");//1 2 3 4 
+		}
+
+	}
+}
+
+2) continue stmt
+---------------
+It is used to continue the execution of loops.
+
+For conditional statement we can use if condition.
+
+syntax:
+------
+	continue;
+
+ex:
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+
+o/p:
+	C.T.E 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" ");// 1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,428 @@
+Q) Types of data structures in java ?
+
+Diagram: java29.1
+
+
+
+Types of cursors in java
+=========================
+Cursors are used to read objects one by one from Collections.
+
+We have three types of curors in java.
+
+1) Enumeration 
+
+2) Iterator 
+
+3) ListIterator 
+
+1) Enumeration 
+---------------
+It is used to read objects one by one from legacy Collection objects.
+
+We can create Enumeration object as follow.
+
+ex:
+	Enumeration e=v.elements();
+
+Enumeration interface contains following two methods.
+ex:
+	public boolean hasMoreElements()
+	public Object nextElement() 
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Vector v=new Vector();
+		for(int i=1;i<=10;i++)
+		{
+			v.add(i);
+		}
+		
+		Enumeration e=v.elements();
+		while(e.hasMoreElements())
+		{
+			Integer i = (Integer)e.nextElement();
+			System.out.println(i);
+		}
+	}
+}
+
+2) Iterator 
+--------------
+It is used to read objects one by one from any Collection object. Hence it is a universal cursor.
+
+Using Iterator we can perform read and remove operations.
+
+We can create Iterator object as follow.
+ex:
+	Iterator itr=al.iterator();
+
+Iterator interface contains following three methods.
+ex:
+	public boolean hasNext()
+	public Object next()
+	public void remove()
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		for(int i=1;i<=10;i++)
+		{
+			al.add(i);
+		}
+		
+		Iterator itr=al.iterator();
+
+		while(itr.hasNext())
+		{
+			Integer i = (Integer)itr.next();
+			if(i%2==0)
+				continue;
+			else
+				itr.remove();
+
+		}
+		System.out.println(al); //[2,4,6,8,10]
+	}
+}
+
+3) ListIterator 
+----------------
+It is a child interface of Iterator interface.
+
+ListIterator is a bi-directional cursor.
+
+Using ListIterator we can read objects one by one from List Collection objects.
+
+We can create ListIterator object as follow.
+ex:
+	ListIterator litr=al.listIterator();
+
+ListIterator is used to read, remove , add and replacement of new objects.
+
+ListIterator interface contains following 9 methods.
+
+ex:
+	public boolean hasNext()
+	public Object next()
+	public boolean hasPrevious()
+	public Object previous() 
+	public int nextIndex()
+	public int previousIndex()
+	public void remove()
+	public void set(E)
+	public void add(E) 
+	
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("chiru");
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+	
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s = (String)litr.next();
+			System.out.println(s); 
+		}
+	}
+}
+
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("chiru");
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+	
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s = (String)litr.next();
+			if(s.equals("venki"))
+			{
+				litr.remove();
+			}
+		}
+
+		System.out.println(al);//[chiru,bala,nag]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("chiru");
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+	
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s = (String)litr.next();
+			if(s.equals("venki"))
+			{
+				litr.add("ramcharan");
+			}
+		}
+
+		System.out.println(al);//[chiru,venki,ramcharan,bala,nag]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("chiru");
+		al.add("venki");
+		al.add("bala");
+		al.add("nag");
+	
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s = (String)litr.next();
+			if(s.equals("venki"))
+			{
+				litr.set("ramcharan");
+			}
+		}
+
+		System.out.println(al);//[chiru,ramcharan,bala,nag]
+	}
+}
+
+
+Multithreading 
+==============
+
+Q) What is the difference between Thread and process?
+
+Thread
+------
+	A thread is a leight weight sub process.
+	We can run multiple threads concurently.
+	One thread can communicate with another thread.
+
+Process
+-------
+	A process is a collection of threads.
+	We can run multiple process concurently.
+	One process can't communicate with another process.
+
+
+Q) What is multitasking ?
+
+Executing several task simultenously such concept is called multitasking.
+
+We have two types of multitasking.
+
+1) Thread based multitasking 
+
+2) Process based multitasking
+
+1) Thread based multitasking 
+-----------------------------
+Executing several task simulteously where each task is a same part of a program such type of multitasking is called thread based multitasking.
+
+It is best suitable for programmatic level.
+
+
+2) Process based multitasking
+-------------------------------
+Executing several task simultenously where each task is a independent process such type of multitasking is called process based multitasking.
+
+It is best suitable for OS level.
+
+
+
+
+Q) What is multithreading?
+
+Executing several threads simultenously such concept is called multithreading.
+
+In multithreading only 10% of work should be done by a programmer and 90% of work will be done by JAVA API.
+
+The main important application area of multithreading are.
+
+1) To implements multimedia graphics 
+
+2) To develop video games. 
+
+3) To develop animations.
+
+Ways to create a thread in java
+===============================
+There are two ways to create a thread in java.
+
+1) By extending a Thread class 
+
+2) By implementing a Runnable interface 
+
+
+1) By extending a Thread class
+------------------------------
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+
+		//start a thread
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+Note:
+----
+If multiple threads are waiting for execution and which thread has to be executed will decided by thread schedular. What alogrithm , mechanism , behaviour used by thread schedular is depends upon JVM vendor. Hence we can't expect any execution order in multithreading.
+
+
+2) By implementing a Runnable interface 
+----------------------------------------
+class MyRunnable implements Runnable 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("child-thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyRunnable r=new MyRunnable();
+		Thread t=new Thread(r); // r is a targatable interface
+		t.start();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("parent-thread");
+		}
+	}
+}
+
+
+Setting and Getting Name of a thread 
+=====================================
+In java, every thread has a name explicitly provided by the programmer or automatically generated by JVM.
+
+We have following methods to set and get name of a thread.
+ex:
+	public final void setName(String name)
+	public final String getName() 
+
+ex:
+----
+class MyThread extends Thread 
+{
+
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Thread.currentThread().getName());// main 
+
+		MyThread t=new MyThread();
+		System.out.println(t.getName()); // Thread-0
+
+		Thread.currentThread().setName("parent-thread");
+		System.out.println(Thread.currentThread().getName());// parent-thread 
+
+		t.setName("child-thread");
+		System.out.println(t.getName());//child-thread
+
+	}
+}
+
+
+Q) Explain life cycle of a thread ?
+
+Diagram: java29.2
+
+Once if we create a thread then our thread will be in new or born state.
+
+Once if we call t.start() methdo our thread will be in ready/runnable state.
+
+If thread schedular allocates to CPU our thread enters to running state.
+
+Once run() method execution is completed our thread goes to dead state.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

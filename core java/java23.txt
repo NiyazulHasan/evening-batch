@@ -1,0 +1,263 @@
+Q) Types of objects in java?
+
+We have two types of objects in java.
+
+1) Immutable object 
+
+2) Mutable object 
+
+1) Immutable object 
+---------------------
+After object creation if we perform any changes then for every change a new object will be created such type of object is called immutable object.
+ex:
+	String and Wrapper classes
+
+2) Mutable object 
+------------------
+After object creation if we perform any changes then all the changes will be done in a same object such type of object is called mutable object.
+ex:
+	StringBuffer and StringBuilder 
+
+
+String 
+========
+It is a collection of characters which is enclosed in a double quotation.
+
+case1:
+------
+Once if we create a String object we can't perform any changes.If we perform any changes then for every change a new object will be created such behaviour is called immutability of an object.
+
+Diagram: java23.1
+
+
+case2:
+------
+Difference between == and .equals() method?
+
+==
+----
+It is used for reference or address comparision.
+It is used to compare primitive types and object types.
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("ihub");
+		String s2=new String("talent");
+		System.out.println(s1==s2); // false 
+	}
+}
+
+
+.equals()
+---------
+It is used for content comparision and it is a case sensitive.
+It is used to compare only object types.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("ihub");
+		String s2=new String("ihub");
+		System.out.println(s1.equals(s2)); // true
+	}
+}
+
+
+case3:
+-------
+Once if we create a String object , two objects will be created one is on heap and another is on 
+SCP (String Constant Pool) area. But 's' always points to heap area.
+
+Diagram: java23.2
+
+
+
+Interning of String object 
+===========================
+With the help of heap object reference if we need corresponding SCP object reference then we need to use intern() method.
+
+Diagram: java23.3
+
+
+String important methods
+=========================
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihub";
+
+		System.out.println(str.length());//4 
+
+		System.out.println(str.charAt(2));//u
+
+		System.out.println(str.toUpperCase());// IHUB 
+
+		System.out.println(str.toLowerCase());//ihub
+
+		str = str.concat("talent");
+		System.out.println(str); // ihubtalent
+
+		System.out.println(str.indexOf('a'));//5
+	}
+}
+
+
+Q) Write a java program remove the spaces from the string?
+
+input:
+	I hub Ta lent 
+
+output:
+	IhubTalent 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="I hub Ta lent";
+
+		str = str.replaceAll("\\s","");
+
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to remove special characters from given string?
+
+Input:
+	I_hu@bTal$en#t21
+
+Output:
+	IhuTalent21
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="I_hu@bTal$en#t21";
+
+		str = str.replaceAll("[^A-Za-z0-9]","");
+
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to concatinate two strings?
+
+input:
+	ihub23
+	talent12
+output:
+	ihubtalent35
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="ihub23";
+		String str2="talent12";
+
+		String word1=str1.replaceAll("[^A-Za-z]","");//ihub
+		int num1=Integer.parseInt(str1.replaceAll("[^0-9]",""));//23
+
+		String word2=str2.replaceAll("[^A-Za-z]","");//talent
+		int num2=Integer.parseInt(str2.replaceAll("[^0-9]",""));//12
+
+		String word = word1+word2;
+		int num = num1+num2;
+
+		System.out.println(word+num);
+
+	}
+}
+
+Q) Write a java program to insert the string?
+
+input:
+	str = ihubtalent 
+
+	index = 4
+		
+	word = for 
+
+output:
+	ihubfortalent
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent"; 
+		int index = 4;
+		String word = "for"; 
+
+		String word1=str.substring(0,index);
+		String word2=str.substring(index,str.length());
+		
+		System.out.println(word1+word+word2);
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	abc.txt 
+
+output:
+	txt 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="abc.txt";
+
+		int index=str.indexOf('.');
+
+		String result = str.substring(index+1);
+
+		System.out.println(result);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

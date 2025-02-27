@@ -1,0 +1,111 @@
+Programming languages
+======================
+Diagram: programming
+
+A language which is used to communicate between user and computer is called programming language.
+
+Programming language acts like a mediator or interface between user and computer.
+
+Programming language divided into two types.
+
+1) Low Level Language 
+
+2) High Level Language 
+
+
+1) Low Level Language 
+---------------------
+A language which is understand by a computer easily is called low level language.
+
+A language which is computer dependent is called low level language.
+
+ex:
+	Machine Language (Binary Language)
+	Assembly Language(Symbolic Language) 
+
+Advantages:
+
+> A program writtens in low level language consumes less memory.
+
+> It is more efficient when compare to high level language.
+
+Disadvantages:
+
+> It is a burdun on a programmer to remember the code.
+
+> If anywhere error raised in our program locating and handling error becomes difficult.
+
+> Modifications can't be done easily.
+
+2) High Level Language 
+----------------------
+A language which understand by a user easily is called high level language.
+
+A language which is user dependent is called high level language.
+
+Ex:
+	C++, Java, .Net, Python, Perl and etc.
+
+High level language can't understand by a computer easily. We required translators.
+
+We have three translators in programming language.
+
+1) Assembler 
+
+2) Compiler 
+
+3) Interpreter  
+
+Advantages:
+
+> It is easy to learn and easy to use because it is similar to english language.
+
+> Debugging can be done easily.
+
+> Modifications can be done easily.
+
+Disadvantages:
+
+> A program writtens in high level language consumes huge amount of memory.
+
+> It requires translator.
+
+> It is not efficient when compare to other languages.
+
+
+Interview Questions
+=====================
+
+Q) What is Debugging?
+
+Errors are also known as bugs.
+
+The process of eliminating or removing the bugs from the application is called debugging.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

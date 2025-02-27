@@ -1,0 +1,233 @@
+Comments in java
+=================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommended to use comments in our regular programming.
+
+Comments will not display in output because they are not compiled by the compiler.
+
+In java, we have two types of comments.
+
+1) Single line comment 
+--------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+
+
+2) Multiple line comment 
+------------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			multiple line comment 
+		*/
+
+
+Interview Question
+-------------------
+
+Q) What is the difference between JDK, JRE and JVM?
+
+JDK
+----
+JDK stands for Java Development Kit.
+
+JDK is a installable software which consist Java Runtime Environment (JRE), Java Virtual Machine (JVM), compiler (javac), interpreter (java), an archiever (.jar), document generator (javadoc) and other tools needed for java application development. 
+
+JRE
+----
+JRE stands for Java Runtime Environment.
+It provides very good environment to run java applications only.
+
+JVM
+----
+JVM stands for Java Virtual Machine.
+JVM is an interpreter which is used to execute our program line by line procedure.
+
+
+Diagram: java2.1
+
+
+History of Java
+===============
+In 1990, Sun Micro System took one project to develop a software called consumer electronic device which can be controlled by a remote like setup box. That time project was called Stealth project and later it is renamed to Green project. 
+
+James Gosling, Mike Sheradin and Patrick Naughton were there to develop the project and they have met in a placed called Aspan/Colarado to start the work with Graphic System. But James Gosling decided to use C and C++ languages to develop the project.But the problem what they have face is C and C++ languages are system dependent. Then James gosling decided why don't we create our own programming language which is system independent.
+
+In 1991 , they have developed a programming language called an OAK. OAK means strength , itself is a coffee seed name and it is a national tree for many contries like Germany , France, USA and etc.
+
+Later in 1995, they have renamed OAK to JAVA. JAVA is a island of an Indonasia where first coffee of seed was produced and during the development of project they were consuming lot of coffee's.Hence symbol of java is a cup of coffee with saucer.
+
+
+Naming conventions in java
+===========================
+In java, uppercase letters will consider as different and lowercase letters will consider as different.Hence we consider java is a case sensitive programming language.
+
+As java is a case sensitive ,we must and should follow naming conventions for following things.
+
+ex:
+	classes
+	interfaces
+	variables 
+	methods 
+	keywords 
+	packages 
+	constants 
+
+classes
+-------
+In java, a class name must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined classes		userdefined classes
+	---------------			-----------------
+	System				Test
+	File				DemoApp
+	FileWriter			ExampleApp
+	BufferedReader 			MyFirstExample		
+	and etc.			and etc.
+
+interfaces
+----------
+In java, an interface name must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined interfaces		userdefined interfaces
+	---------------------		-----------------------
+	Runnable			IDemoApp 
+	Serializable			ITest
+	ListIterator 			IExampleApp
+	and etc.			and etc.
+
+
+variables
+----------
+In java, a variable name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined variables		userdefined variables
+	-------------------		---------------------
+	out				empId	
+	err				studName
+	in 				deptNo
+	length 				rollNo
+	and etc.			and etc.
+
+methods 
+---------
+In java, a method name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined methods		userdefined methods
+	---------------			-------------------
+	getPriority()			getDetails()
+	setName()			setInfo()
+	hashCode()			calculateBill()
+	getClass()			showResult()
+	and etc.			and etc.
+
+keywords 
+---------
+In java, all keywords we need to write under lowercase letters only.
+ex:
+	predefined  keywords
+	-------------------
+	class, if, public, static, void, else, for and etc.
+
+packages 
+---------
+In java, all packages we need to write under lowercase letters only.
+ex:
+	predefined packages	userdefined packages
+	-----------------	-------------------
+	java.lang		com.ihub.www	
+	java.io			com.sadik.www
+	java.util		com.qt.www
+	java.sql		and etc.
+	java.time 
+	and etc.
+
+constants 
+---------
+In java, all constants we need to write under uppercase letters only.
+
+ex:
+	predefined constants		userdefined constants
+	-----------------------		---------------------
+	MAX_PRIORITY 			LIMIT=10;	
+	MIN_PRIORITY 
+	NORM_PRIORITY 
+	MAX_VALUE 
+	MIN_VALUE
+	and etc.
+
+Assignment 
+==========
+
+1) class	:	QualityThought
+
+2) interface	:	IQualityThought
+
+3) variable 	: 	qualityThought
+
+4) method 	:	qualityThought()
+
+5) package	:	com.qualitythought.www	
+
+6) constant 	:	QUALITY_THOUGHT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

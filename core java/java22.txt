@@ -1,0 +1,486 @@
+Enum 
+======
+Enum is a group of named constants.
+
+Enum concept introduced in Java 1.5 version.
+
+Using enum we can create our own datatype called enumerated datatype.
+
+When compare to old language enum, java enum is more powerful.
+
+To declare a enum we will use enum keyword.
+
+syntax:
+------
+	enum  type_name
+	{
+		value1,value2,.....,valueN
+	}
+
+ex:
+---
+	enum Months 
+	{
+		JAN,FEB,MAR
+	}
+
+Internal implementation of enum 
+--------------------------------
+Every enum internally consider as class concept and it extends with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+ex:
+
+enum Months			public final class Months extends java.lang.Enum   
+{				{
+	JAN,FEB,MAR	==>		public static final Months JAN=new Months();
+}					public static final Months FEB=new Months();
+					public static final Months MAR=new Months();
+				}
+
+Declaration and Usage of enum 
+------------------------------
+enum Months 
+{
+	JAN,FEB,MAR
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Months m = Months.JAN;
+		System.out.println(m);
+	}
+}
+
+ex:
+---
+enum Months 
+{
+	JAN,FEB,MAR
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Months m = Months.FEB;
+		switch(m)
+		{
+			case JAN: System.out.println("January"); break;
+			case FEB: System.out.println("February"); break;
+			case MAR: System.out.println("March"); break;
+		}
+	}
+}
+
+java.lang.Enum 
+----------------
+The power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1) values()
+-----------
+	It is used to read group of constants from enum.
+
+2) ordinal() 
+------------
+	It is used to read ordinal numbers.
+
+ex:
+---
+enum Drinks 
+{
+	COLA,PEPSI,COKE
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Drinks[] d = Drinks.values();
+
+		//for each loop
+		for(Drinks d1 : d )
+		{
+			System.out.println(d1+"------------"+d1.ordinal());
+		}
+	}
+}
+
+When compare to old language enum, java enum is more powerful because in addition to constants we can declare variables, methods and constructors.
+
+ex:
+---
+enum Cloths
+{
+	SILK,COTTON,KHADI;
+
+	Cloths()
+	{
+		System.out.println("constructor");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Cloths c = Cloths.SILK;
+	}
+}
+
+ex:
+---
+enum Week 
+{
+	MON,TUE,WED,THU,FRI,SAT,SUN;
+
+	static int i=100;
+
+	public static void main(String[] args)
+	{
+		System.out.println(i);
+	}
+}
+
+Wrapper classes 
+===============
+The main objective of wrapper classes are 
+
+1) To wrap primitive type to wrapper object and vice versa.
+
+2) To defined several utility methods.
+
+ex:
+	primitive type			wrapper class
+	---------------			--------------
+	byte				Byte 
+	short				Short 
+	int 				Integer 
+	long 				Long 
+	float				Float
+	double 				Double 
+	boolean 			Boolean 
+	char 				Character 
+
+
+constructor 
+-----------
+Every wrapper class contains two constructors one will take corresponding primitive as an argument and another will take corresponding String as an argument.
+
+ex:
+	Wrapper class			Constructor
+	-------------			------------
+	Byte 				byte or String 
+	Short				short or String 
+	Integer 			int or String 
+	Long				long or String 
+	Float				float or String 
+	Double 				double or String 
+	Boolean 			boolean or String 
+	Character 			char 
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1=new Integer(10);
+		System.out.println(i1);
+
+		Integer i2=new Integer("20");
+		System.out.println(i2);
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Boolean b1=new Boolean(true);
+		System.out.println(b1);
+
+		Boolean b2=new Boolean("false");
+		System.out.println(b2);
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Character c = new Character('a');
+		System.out.println(c);
+	}
+}
+
+
+Utility methods
+----------------
+
+1) valueOf() 
+-----------
+It is used to convert primitive type to wrapper object.
+
+The process of converting from primitive type to wrapper object is called autoboxing.
+
+
+ex:
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int a=10;
+
+		Integer i1=Integer.valueOf(a);
+
+		System.out.println(i1); // 10
+	}
+}
+	
+
+2) xxxValue() 
+-------------
+It is used to convert wrapper object to primitive type.
+The process of converting from wrapper object to primitive type is called auto-unboxing.
+
+ex:
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i=new Integer(10);
+
+		int a = i.intValue();
+		System.out.println(a);
+
+		byte b = i.byteValue();
+		System.out.println(b); 
+
+		short s = i.shortValue();
+		System.out.println(s);
+	}
+}
+
+3) parseXxx()
+---------------
+It is used to convert String type to primitive type.
+
+ex:
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="45";
+
+		int i = Integer.parseInt(str);
+		System.out.println(i);
+
+		float f = Float.parseFloat(str);
+		System.out.println(f); 
+
+		double d = Double.parseDouble(str);
+		System.out.println(d);
+	}
+}
+
+
+4) toString() 
+-----------
+It is used to convert wrapper object to string type.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i=new Integer(10);
+
+		String str = i.toString() ;
+
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to display sum of two binary numbers?
+
+input:
+	1010
+	0101
+
+output:
+	1111	
+
+ex:
+---
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first binary number :");
+		String binary1=sc.next();
+		
+		System.out.println("Enter the second binary number :");
+		String binary2=sc.next();
+
+		//convert binary to decimal 
+		int a = Integer.parseInt(binary1,2);
+		int b = Integer.parseInt(binary2,2);
+
+		int c = a + b;
+
+		//convert decimal to binary 
+		String result = Integer.toBinaryString(c);
+		System.out.println(result);
+	}
+}
+
+
+Inner classes 
+=============
+Sometime we will declare a class inside another class such concept is called inner class.
+
+ex:
+	class Outer_class
+	{		
+		class Inner_class
+		{
+			-
+			-
+			-
+		}
+	}
+
+Inner class must and should declare within the scope of enclosing class.
+
+Inner class introduced as a part of event handling to remove GUI bugs.
+
+But due to powerful features and benefits of inner classes. Programmers started to use inner classes in regular programming.
+
+Inner classes does not allow static members.
+
+
+Accessing inner class data from static area of outer class
+------------------------------------------------------------
+class Outer 
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		Outer.Inner i=new Outer().new Inner();
+		i.m1();
+	}
+}
+
+Accessing inner class data from non-static area of outer class
+--------------------------------------------------------------
+class Outer 
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+	public void m2()
+	{
+		Inner i = new Inner();
+		i.m1();
+	}
+	public static void main(String[] args)
+	{
+		Outer o = new Outer();
+		o.m2();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

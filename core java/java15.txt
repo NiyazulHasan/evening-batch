@@ -1,0 +1,343 @@
+Various ways to declare the methods in java
+===========================================
+There are four ways to declare the methods in java.
+
+1) No return type with No argument method 
+
+2) No return type with argument method 
+
+3) With return type with No argument method 
+
+4) With return type with argument method 
+
+
+1) No return type with No argument method
+-------------------------------------------
+If we don't have arguments then we need to ask input values inside callie method.
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method 
+		sum();
+	}
+
+	//static method 
+	//callie method 
+	public static void sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		int c = a + b;
+		System.out.println("sum of two numbers is ="+c);
+	}
+}
+
+2) No return type with argument method 
+---------------------------------------
+If we have arguments then we need to ask input values inside main method.
+Number of arguments depends upon number of inputs.
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		//caller method 
+		sum(a,b);
+	}
+
+	//static method 
+	//callie method 
+	public static void sum(int a,int b)
+	{
+		int c = a + b;
+		System.out.println("Sum of two numbers is ="+c);
+	}
+}
+
+3) With return type with No argument method 
+-------------------------------------------
+At a time we can return only one value.
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method 
+		int k = sum();
+		System.out.println("Sum of two numbers is = "+k);
+	}
+	//static method 
+	//callie method 
+	public static int sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		int c = a + b;
+
+		return c;
+	}
+}
+ 
+4) With return type with argument method 
+-----------------------------------------
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		//caller method 
+		System.out.println("sum of two numbers is ="+sum(a,b));
+	}
+	//static method 
+	//callie method 
+	public static int sum(int a,int b)
+	{
+		int c=a+b;
+		return c;
+	}
+}
+
+Assignment
+===========
+Q) Write a java program to perform cube of a given number?
+
+
+
+Recursion 
+===========
+A method which call itself for many number of times is called recursion.
+
+Recursion is similar to loopings.
+
+Whenever we use recursion we should not use loops.
+
+
+
+Q) Write a java program to display 10 naturals without using loops?
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method 
+		display(1);
+	}
+	//static method 
+	public static void display(int i)
+	{
+		if(i<=10)
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+
+			display(i+1);
+		}
+	}
+}
+
+
+Q) Write a java program to find out factorial of a given number using recursion?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();//5
+
+		//caller method
+		System.out.println(factorial(n));
+	}
+	//static method 
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+
+		if(n==0)
+			return 1;
+
+		return n*factorial(n-1);
+	}
+}
+
+Arrays
+========
+Array is a collection of homogeneous data elements.
+
+The main advantages of arrays are 
+
+1) We can represent multiple elements using single variable name.
+   ex:
+	int[] arr={10,20,30};
+
+2) Performance point of view arrays are recommanded to use.
+
+The main disadvantages of arrays are 
+
+1) Arrays are fixed in size. Once if we create an array there is no chance of increasing or decreasing the size of an array.
+
+2) To use array concept in advanced we should know what is the size of an array which is always not possible.
+
+In java, arrays are classified into three types.
+
+1) Single dimensional array 
+
+2) Double dimensional array 
+
+3) Multi dimensional array 
+
+Array Declaration 
+----------------
+At the time of array declaration we should not specify array size.
+
+ex:
+					Arrays
+	|----------------------------------|------------------------------------|
+Single Dimensional Array	Double Dimensional Array		Multi Dimensional Array 
+
+int[] arr;			int[][] arr;				int[][][] arr;	
+int  []arr;			int  [][]arr;				int  [][][]arr;
+int arr[];			int arr[][];				int  arr[][][];
+				int[] []arr;				int[][] []arr;
+				int[] arr[];				int[][] arr[];
+				int  []arr[];				int[]  [][]arr;
+									int[]  arr[][];
+									int[]  []arr[];
+									int  [][]arr[];
+									int  []arr[][];
+
+Array Creation 
+==============
+In java , every array consider as an object.Hence we will use new operator to create an array.
+
+Diagram: java15.1
+
+Rules to constructor an array
+-----------------------------
+Rule1:
+------
+	At the time of array creation compulsary we need to specify array size.
+	ex:
+		int[] arr=new int[3]; //valid 
+
+
+Rule2:
+-------
+	It is legal to have an array size with zero.
+	ex:
+		int[] arr=new int[0]; 
+		System.out.println(arr.length);//0
+
+
+Rule3:
+-----
+	We can't take negative number as an array size.
+	ex:
+		int[] arr=new int[-3]; //R.E NegativeArraySizeException 
+
+Rule4:
+------
+	The allowed datatype for an array size are byte , short, int and char.
+	If we take other datatypes then we will get compile time error. 
+	ex:
+		int[] arr=new int['a']; 
+
+		byte b=10;
+		int[] arr=new int[b]; 
+
+		int[] arr=new int[10.5d]; //invalid 
+
+Rule5:
+-----
+	The maximum length we can take for an array size is maximum length of int.
+	ex:
+		int[] arr=new int[2147483647];
+
+
+Array Initialization 
+------------------------
+Once we create an array , every array elements are initialized with default values.
+
+If we are not happy with default values then we can change with customized values.
+
+ex:
+	int[] arr=new int[3];
+	arr[0]=10;
+	arr[1]=20;		
+	arr[2]=30;
+	arr[3]=40; // R.E ArrayIndexOutOfBoundsException 
+
+
+Array Declaration , Creation and Initialization using single line
+-----------------------------------------------------------------
+
+	int[] arr;
+	arr = new int[3];
+	arr[0]=10;
+	arr[1]=20;
+	arr[2]=30;	==>	int[] arr={10,20,30};
+			==>	char[] carr={'a','b','c'};
+			==>	String[] sarr={"hi","hello","bye"};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

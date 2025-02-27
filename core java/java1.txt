@@ -1,0 +1,130 @@
+Modules in Java
+===============
+Java contains three modules.
+
+					JAVA
+					  |
+	|---------------------------------|--------------------------------|
+	JSE/J2SE			JEE/J2EE			JME/J2ME
+(Java Standard Edition)		(Java Enterprise Edition)	(Java Micro Edition)
+
+> Standalone app		> Distributed app		> Mobile app
+
+> Desktop app 			> Enterprise app 
+
+> Two-tier app 			> ERP app 
+
+				> N-tier app 	
+
+> Standalone app
+----------------
+A normal java program which contains main method is called standalone application.
+ex:
+	class Test
+	{	
+		public static void main(String[] args)
+		{
+			-
+			-
+			-
+		}
+	}
+
+
+> Desktop app 
+--------------
+It is a software application or a program which is specially designed to perform perticular task.
+
+ex:
+	Recycle bin 
+	VLC media player 
+	NotePad 
+	paint 
+	and etc.
+
+
+> Two-tier app 
+----------------
+Having more then one tier is called two-tier application.
+
+Diagram: java1.1
+
+
+> Distributed app
+-----------------
+Diagram: java1.3
+
+In client-Server application, if multiple request goes to main server then main server will distributes those request to it's parallel servers to reduce the burdun of main server such type of application is called distributed application.
+
+
+> Enterprise app 
+-----------------
+An application which deals with large complex business logic with the help of middleware services such type of application is called enterprise application.
+ex:
+	Facebook
+	Online shopping websites.
+
+> ERP app
+-----------
+ERP stands for Enterprise Resource Planning.
+
+ERP is used to maintain the data in enterprise.
+
+Diagram: java1.4
+
+> N-tier app 	
+------------
+Having more then two tiers is called N-tier application.
+
+> Mobile app
+------------
+It is a software application which is specially designed for wireless network devices like phone, tab , cellular, cell and etc rather then laptop's and pc's.
+
+ex:
+	pubg
+	temple run
+	Gpay
+	phonePay 
+	and etc.
+
+Note:
+----
+JME module is outdate because to create mobile applications we got alternate technologies like Andriod, React native, Flutter , swift programming and etc.
+
+
+Interview Question
+==================
+Q) What is Java?
+
+Java is a versatile programming which is used to develop various applications like standalone applications, desktop applications, ERP applications, Distributed applications, networking application , gaming applications and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+

@@ -1,0 +1,373 @@
+Set 
+====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects where duplicates objects are not allowed and order is not preserved then we need to use Set interface.
+
+Diagram: java28.1
+
+
+HashSet 
+------------
+The underlying data structure is Hashtable.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes hashcode of an object.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashSet hs=new HashSet();
+		hs.add("one");
+		hs.add("nine");
+		hs.add("six");
+		hs.add("five");
+		System.out.println(hs); //[nine, six, one, five]
+
+		hs.add("one");
+		System.out.println(hs); //[nine, six, one, five]
+
+		hs.add(10);
+		System.out.println(hs); //[nine, six, one, 10, five]
+
+		hs.add(null);
+		System.out.println(hs); //[null, nine, six, one, 10, five]
+	}
+}
+
+LinkedHashSet 
+--------------
+It is a child class of HashSet class.
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+HashSet						LinkedHashSet 
+-----------					------------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable and 
+						LinkedList.
+
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+
+It is introduced in 1.2v.			It is introduced in 1.5v.
+
+ex;
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet lhs=new LinkedHashSet();
+		lhs.add("one");
+		lhs.add("nine");
+		lhs.add("six");
+		lhs.add("five");
+		System.out.println(lhs); //[one,nine,six,five]
+
+		lhs.add("one");
+		System.out.println(lhs); //[one,nine,six,five]
+
+		lhs.add(10);
+		System.out.println(lhs); //[one,nine,six,five,10]
+
+		lhs.add(null);
+		System.out.println(lhs); //[one,nine,six,five,10,null]
+	}
+}
+
+TreeSet 
+=========
+The underlying data structure is Balanced Tree.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes sorting order of an object.
+
+Hetrogeneous objects are not allowed otherwise we will get ClassCastException.
+
+null insertion is not possible otherwise we will get NullPointerException.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(5);
+		ts.add(10);
+		ts.add(1);
+		ts.add(3);
+		System.out.println(ts); // [1, 3, 5, 10]
+
+		ts.add(1);
+		System.out.println(ts); // [1, 3, 5, 10]
+
+		//ts.add("hi");
+		//System.out.println(ts);// R.E ClassCastException
+
+		//ts.add(null);
+		//System.out.println(ts); // R.E NullPointerException
+	}
+}
+
+Q)What is the difference between Comparable and Comparator interface?
+
+Comparable 					Comparator
+-----------					------------
+It is present in java.lang package.		It is present in java.util package.
+
+It contains only one method i.e compareTo().	It contains two methods i.e compare() and equals().
+
+If we depend upon default natural sorting 	If we depend upon customized natural sorting order 
+order then we need to use Comparable interface.	then we need to use Comparator interface.
+
+
+
+Map 
+=====
+It is not a child interface of Collection interface.
+
+If we want to represent group of individual objects in key and value pair then we need to use Map interface.
+
+Both key and value must be objects.
+
+key can't be duplicate but value can be duplicate.
+
+Each key and value pair is caled one-entry.
+
+Diagram: java28.2
+
+
+HashMap 
+========
+The underlying data structure is Hashtable.
+
+Duplicate keys are not allowed but values can be duplicate.
+
+Insertion order is not preserved because it takes hashcode of the key.
+
+Hetrogeneous objects are allowed for both key and value.
+
+Null insertion is possible for key and value.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashMap hm=new HashMap();
+		hm.put("one","raja");
+		hm.put("nine","alan");
+		hm.put("six","jose");
+		hm.put("five","ben");
+		System.out.println(hm);//{nine=alan, six=jose, one=raja, five=ben}
+
+		hm.put("one","gogo");
+		System.out.println(hm);//{nine=alan, six=jose, one=gogo, five=ben}
+
+		hm.put(1,100);
+		System.out.println(hm);//{nine=alan, 1=100, six=jose, one=gogo, five=ben}
+
+		hm.put(null,null);
+		System.out.println(hm);//{null=null, nine=alan, 1=100, six=jose, one=gogo, five=ben}
+	}
+}
+
+
+LinkedHashMap 
+===============
+It is a child class of HashMap class.
+
+LinkedHashMap is exactly same as HashMap class with following differences.
+
+HashMap						LinkedHashMap 
+----------					---------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable and 
+						LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+It is introduced in 1.2v.			It is introduced in 1.4v.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashMap lhm=new LinkedHashMap();
+		lhm.put("one","raja");
+		lhm.put("nine","alan");
+		lhm.put("six","jose");
+		lhm.put("five","ben");
+		System.out.println(lhm);//{one=raja,nine=alan,six=jose,five=ben}
+
+		lhm.put("one","gogo");
+		System.out.println(lhm);//{one=gogo,nine=alan,six=jose,five=ben}
+
+		lhm.put(1,100);
+		System.out.println(lhm);//{one=gogo,nine=alan,six=jose,five=ben,1=100}
+
+		lhm.put(null,null);
+		System.out.println(lhm);//{one=gogo,nine=alan,six=jose,five=ben,1=100,null=null}
+	}
+}
+
+
+TreeMap 
+========
+The underlying data structure is RED BLACK TREE.
+
+Duplicate keys are not allowed but values can be duplicate.
+
+Insertion order is not preserved because it takes sorting order of the key.
+
+If we depends upon default natural sorting order then keys can be homogeneous and comparable.
+
+If we depends upon customized sorting order then keys can be hetrogeneous and non-comparable.
+
+Key can't be null but value can be null.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeMap<Integer,String> tm=new TreeMap<Integer,String>();
+		tm.put(10,"ten");
+		tm.put(1,"one");
+		tm.put(5,"five");
+		System.out.println(tm); //{1=one, 5=five, 10=ten}
+
+		tm.put(1,"gogo");
+		System.out.println(tm); //{1=gogo, 5=five, 10=ten}
+
+		tm.put(6,null);
+		System.out.println(tm); //{1=gogo, 5=five, 6=null, 10=ten}
+
+		//tm.put(null,"six");
+		//System.out.println(tm); // R.E NullPointerException
+	}
+}
+
+Hastable 
+==========
+The underlying datastructure is Hashtable.
+
+Duplicate keys are not allowed but values can be duplicate.
+
+Insertion order is not preserved because it takes descending order of the key.
+
+Hetrogeneous objects are allowed for both key and value.
+
+null insertion is not possible for both key and value.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Hashtable<Integer,String> ht=new Hashtable<Integer,String>();
+		ht.put(10,"ten");
+		ht.put(1,"one");
+		ht.put(5,"five");
+		System.out.println(ht); //{10=ten,5=five,1=one}
+
+		ht.put(1,"gogo");
+		System.out.println(ht); //{10=ten,5=five,1=gogo}
+		
+		//ht.put(6,null);
+		//System.out.println(ht); //R.E NullPointerException 
+
+		//ht.put(null,"six");
+		//System.out.println(ht); // R.E NullPointerException
+	}
+}
+
+
+Q) Write a java program to sort the list?
+
+input:
+	4 6 1 8 9 3 
+
+output:
+	1 3 4 6 8 9 
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list=Arrays.asList(4,6,1,8,9,3);
+
+		Collections.sort(list);
+
+		list.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

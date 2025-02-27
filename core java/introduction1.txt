@@ -1,0 +1,93 @@
+Institute Name		: QualityThought / Ihub Talent Management
+
+Websites		: www.qualitythought.in  / www.ihubtalent.com 
+
+location		: Ameerpet , Hyderabad.
+
+Trainer Name		: Niyaz sir 
+
+Experience		: 14+ years of experience in development and training.
+
+Course Name		: Full Stack Java Development Course + AWS 	
+
+Duration		: 4 Months 
+
+Mode			: Online/Offline 
+
+Project			: Employee Management System (ReactJS + Spring Boot + MySQL)	
+
+Course Fee		: 30K (25K)
+
+Recording Videos	: Free
+
+Placement Team		: Placement Officer 
+
+
+			Full Stack Java Development Course
+					|
+	|---------------------------------------------------------------|
+Fontend Technologies						BackEnd Technologies 
+
+> HTML5								> Core Java
+> CSS3								> Advanced Java
+> JavaScript 								> JDBC
+> Bootstrap5								> Servlets
+> ReactJS 								> JSP
+								> Oracle DB 
+								> Frameworks
+									> Spring Boot 
+									> Microservices
+
+Java
+=====
+Object oriented programming language.
+Platform independent programming language.
+Case sensitive programming language.
+Strongly typed checking language.
+High level programming language.
+Open source programming language.
+
+1995 --> Sun micro System --> Oracle Corporation
+
+JDK software --> Java Software 
+
+
+Interview Question
+=================
+Q) What is java?
+
+Java is a object oriented, platform independent, case sensitive, strongly typed checking , high level , open source programming language developed by James gosling in the year of 1995.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

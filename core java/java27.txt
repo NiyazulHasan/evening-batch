@@ -1,0 +1,409 @@
+Generics 
+=========
+Arrays are typesafe. 
+It means we can give guarantee that what type of elements are present in array.
+ex:
+	int[] arr=new int[3];
+	arr[0]=10;
+	arr[1]=20;
+	arr[2]=30;
+	arr[3]="hi"; // invalid 
+
+If requirement is there to store string values then it is recommanded to use String array.
+ex:
+	String[] sarr=new String[3];
+	sarr[0]="hi";
+	sarr[1]="hello";
+	sarr[2]="bye";
+
+At the time of retrieving the data we don't need to perform typecasting.
+ex:
+	String[] sarr=new String[3];
+	sarr[0]="hi";
+	sarr[1]="hello";
+	sarr[2]="bye";
+	-
+	-
+	String val=sarr[0];
+
+But Collections are not typesafe.
+
+It means we can't give guarantee that what type of elements are present in Collections.
+
+If requirement is to store string values then it is never recommanded to use ArrayList because we won't get any compile time error or runtime error but sometimes our program get failures.
+
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("bye");
+	al.add(10);
+	
+At the time of retrieving the data from Collections compulsary we need to perform typecasting.
+
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("bye");
+	al.add(10);
+	-
+	-
+	String val=(String)al.get(0);
+
+To overcome above limitations Sun Micro System introduced Generics concept in 1.5v.
+
+The main objective of Generics are
+
+1) To make Collections as typesafe.
+
+2) To avoid typecasting problem. 
+
+java.util package
+===================
+
+Q) What is the difference between Arrays and Collections ?
+
+Arrays					Collections 
+----------------			------------------
+It is a collection of homogeneous 	It is a collection of homogeneous and hetrogeneous 
+data elements.				data elements.
+
+It is fixed in size.			It is growable in nature.
+
+Performance point of view arrays are 	Memory point of view Collections are recommanded 
+recommanded to use.			to use.
+
+Arrays are not implemented based on 	Collections are implemented based on data structure 
+data structure concept so we can't 	concept so we can expect readymade methods.
+expect any readymade methods.
+
+Arrays can hold primitive types and 	Collections can hold only object types.
+object types.
+
+
+
+Collection 
+==========
+Collection is an interface which is present in java.util package.
+
+It is a root interface for entire Collection Framework.
+
+If we want to represent group of individual objects in a single entity then we need to use Collection interface.
+
+Collection interface contains following methods which are available for entire Collection objects.
+
+ex:
+	cmd> javap  java.util.Collection
+
+  public abstract int size();
+  public abstract boolean isEmpty();
+  public abstract boolean contains(java.lang.Object);
+  public abstract java.util.Iterator<E> iterator();
+  public abstract java.lang.Object[] toArray();
+  public abstract <T> T[] toArray(T[]);
+  public default <T> T[] toArray(java.util.function.IntFunction<T[]>);
+  public abstract boolean add(E);
+  public abstract boolean remove(java.lang.Object);
+  public abstract boolean containsAll(java.util.Collection<?>);
+  public abstract boolean addAll(java.util.Collection<? extends E>);
+  public abstract boolean removeAll(java.util.Collection<?>);
+  public default boolean removeIf(java.util.function.Predicate<? super E>);
+  public abstract boolean retainAll(java.util.Collection<?>);
+  public abstract void clear();
+  public abstract boolean equals(java.lang.Object);
+  and etc.
+
+
+List 
+====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are allowed and order is preserved then we need to use List interface. 
+
+Diagram: java27.1
+
+
+ArrayList 
+-----------
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogenous objects are allowed.
+
+Null insertion is possible.
+
+ArrayList is best of storing and accessing the data.
+
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		System.out.println(al.isEmpty());//true 
+
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		System.out.println(al);//[one,two,three]
+
+		al.add("one");
+		System.out.println(al); //[one,two,three,one]
+
+		al.add(10);
+		System.out.println(al); //[one,two,three,one,10]
+
+		al.add(null);
+		System.out.println(al);//[one,two,three,one,10,null]
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list=new ArrayList<Integer>();
+		list.add(1);
+		list.add(5);
+		list.add(6);
+		System.out.println(list);//[1,5,6]
+
+		System.out.println(list.contains(5));//true
+
+		System.out.println(list.get(0));//1
+
+		System.out.println(list.get(list.size()-1)); // 6
+
+		list.remove(2);
+		System.out.println(list); //[1,5]
+
+		list.clear();
+		System.out.println(list); // []
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list=Arrays.asList(6,9,1,2);
+
+		list.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+LinkedList 
+--------------
+The underlying data structure is doubly LinkedList.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+LinkedList is best of manipulating the data.
+
+LinkedList class contains following methods.
+
+ex:
+	public E getFirst();
+  	public E getLast();
+  	public E removeFirst();
+  	public E removeLast();
+  	public void addFirst(E);
+  	public void addLast(E);
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedList ll=new LinkedList();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+
+		ll.add("one");
+		System.out.println(ll);//[one,two,three,one]
+
+		ll.add(10);
+		System.out.println(ll); //[one,two,three,one,10]
+
+		ll.add(null);
+		System.out.println(ll); //[one,two,three,one,10,null]
+	}
+}
+
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll=new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+
+		ll.addFirst("gogo");
+		ll.addLast("jojo");
+
+		System.out.println(ll);//[gogo,one,two,three,jojo]
+
+		System.out.println(ll.getFirst()); // gogo
+		System.out.println(ll.getLast()); //jojo
+
+		ll.removeFirst();
+		ll.removeLast();
+		System.out.println(ll); //[one,two,three]
+	}
+}
+
+Vector 
+----------
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogenous objects are allowed.
+
+Null insertion is possible.
+
+All the methods present in Vector are synchronized. Hence it is thread safe.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Vector<Integer> v=new Vector<Integer>();
+		System.out.println(v.capacity());//10
+
+		for(int i=1;i<=10;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v); //[1,2,3,4,5,6,7,8,9,10]
+
+		System.out.println(v.firstElement());
+		System.out.println(v.lastElement());
+
+		v.removeElementAt(5);
+		System.out.println(v);//[1,2,3,4,5,7,8,9,10]
+
+		v.removeAllElements();
+		System.out.println(v); //[]
+	}
+}
+
+Stack 
+-------
+It is a child class of Vector class.
+
+If we depend upon Last In First Out order then we need to use Stack.
+
+constructor
+----------
+	Stack s=new Stack();
+
+methods
+--------
+
+1) push(E)
+-------
+	It is used to push the element to stack.
+
+2) pop()
+--------
+	It is used to remove the element from stack.
+
+3) peek()
+--------
+	It is used to return toppest element from stack.
+
+4) isEmpty()
+------------
+	It is used to check stack is empty or not.
+
+5) search(E) 
+----------
+	It returns offset value if element is found otherwise it will return -1.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Stack<String> s=new Stack<String>();
+		s.push("A");
+		s.push("B");
+		s.push("C");
+		System.out.println(s); // [A,B,C]
+
+		s.pop();
+		System.out.println(s); //[A,B]
+
+		System.out.println(s.peek());// B 
+
+		System.out.println(s.isEmpty());//false 
+
+		System.out.println(s.search("K"));//-1
+
+		System.out.println(s.search("A"));//2
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

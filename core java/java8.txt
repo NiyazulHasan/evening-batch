@@ -1,0 +1,460 @@
+Edit plus Editor
+================
+Download link : https://www.editplus.com/latest5.html
+
+
+Java Basic Program
+===================
+
+Q) Write a java program to display sum of two numbers?
+
+import java.util.Scanner;
+class Example1
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		int c = a + b;
+
+		System.out.println("sum of two numbers is ="+c);
+	}
+}
+
+
+Q) Write a java program to display square of a given number?
+
+input:
+	5
+
+output:
+	25
+
+import java.util.Scanner;
+class Example2
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		//logic
+		int square=n*n;
+
+		System.out.println("Square of a given number is ="+square);
+	}
+}
+
+Q) Write a java program to display cube of a given number?
+
+Input:
+	5
+
+output:
+	125
+
+ex:
+
+import java.util.Scanner;
+class Example4
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		//logic
+		int cube =(int)Math.pow(n,3);
+
+		System.out.println("Cube of a given number is ="+cube);
+	}
+}
+
+Q) Write a java program to display area of a circle?
+
+import java.util.Scanner;
+class Example5
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the radius :");
+		int r=sc.nextInt();
+		
+		//logic
+		double area = Math.PI*r*r;
+
+		System.out.printf("Area of a circle is = %.2f",area);
+		
+	}
+}
+
+
+Q) Write a java program to display swapping of two numbers?
+
+import java.util.Scanner;
+class Example6
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		System.out.println("Before swapping a = "+a+" and b = "+b);
+
+		//swapping logic
+		int temp=a;
+		a=b;
+		b=temp;
+
+		System.out.println("After swapping a = "+a+" and b = "+b);
+	}
+}
+
+Assignments
+===========
+Q) Write a java program to find out perimeter of a circle?
+
+Q) Write a java program to convert CGPA to percentage?
+
+
+
+
+Type casting 
+===============
+The process of converting from one datatype to another datatype is called typecasting.
+
+In java, typecasting can be performed in two ways.
+
+1) Implicit typecasting 
+
+2) Explicit typecasting 
+
+
+1) Implicit typecasting 
+------------------------
+If want to store small value into a bigger variable then we need to use implicit typecasting.
+
+A compiler is responsible to perform implicit typecasting.
+
+There is no possibility to loss the information.
+
+It is also known as widening or upcasting.
+
+We can perform implicit typecasting as follow.
+
+ex:
+	byte 	-->	short
+				-->
+					int  --> long --> float --> double
+				-->
+			char
+ex:
+----
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		byte b=10;
+		
+		int i=b;
+
+		System.out.println(i); // 10
+	}
+}
+
+ex:
+---
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		char ch='a';
+
+		long l=ch;
+
+		System.out.println(l); // 97
+	}
+}
+
+ex:
+--
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+
+		float f=i;
+
+		System.out.println(f); // 10.0
+	}
+}
+
+2) Explicit typecasting
+-------------------------
+If we want to store bigger value into a smaller variable then we need to use explicit typecasting.
+
+A programmer is responsible to perform explicit typecasting.
+
+There is a possibility to loss the information.
+
+It is also known as Narrowing or Dowcasting.
+
+We can perform explicit typecasting as follow.
+
+ex:
+	byte 	<--	short
+				<--
+					int  <-- long <-- float <-- double
+				<--
+			char
+ex:
+---
+
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		double d=10.5d;
+
+		int i=(int)d;
+
+		System.out.println(i); //10
+	}
+}
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		int i=65;
+
+		char ch=(char)i;
+
+		System.out.println(ch);// A
+	}
+}
+
+ex:
+---
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		int i=130;
+
+		byte b=(byte)i;
+
+		System.out.println(b);//-126
+	}
+}
+
+Types of blocks in java
+=======================
+A block is a set of statements which is enclosed in a curly braces i.e {}.
+
+In java, we have three types of blocks.
+
+1) Instance block 
+
+2) Static block 
+
+3) Local block 
+
+
+1) Instance block 
+------------------
+Instance block is used to initialize the instance variables.
+
+Instance block will execute when we create an object.
+
+Instance block must and should declare immediately after the class.
+
+We can declare instance block as follow.
+
+syntax:
+	//instance block 
+	{
+		-
+		- //set of statements 
+		-
+	}
+ex:
+---
+class Test
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	public static void main(String[] args)
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	main-method 
+
+ex:
+---
+class Test
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	public static void main(String[] args)
+	{
+		System.out.println("main-method");
+		Test t=new Test();
+	}
+}
+o/p:
+	main-method
+	instance-block
+
+ex:
+---
+class Test
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2=new Test();
+	}
+}
+o/p:
+
+	instance-block
+	main-method
+	instance-block
+
+ex:
+---
+
+class Test
+{
+	//instance variable 
+	int i;
+
+	//instance block 
+	{
+		i=100;
+	}
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.i); //100
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

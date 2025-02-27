@@ -1,0 +1,329 @@
+Method Overriding 
+==================
+Having same method name with same parameters in two different classes is called method overriding.
+
+Methods which are present in parent class are called overridden methods.
+
+Methods which are present in child class are called overriding methods.
+
+ex:
+---
+class Parent 
+{
+	public void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	//overridden method
+	public void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Child extends Parent 
+{
+	//overriding method 
+	public void marry()
+	{
+		System.out.println("Trisha");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // Cash+Gold+Land 
+		p.marry(); // Rashmika 
+
+		Child c=new Child();
+		c.property(); // Cash+Gold+Land
+		c.marry(); // Trisha 
+
+		Parent p1=new Child();
+		p1.property();// Cash+Gold+Land
+		p1.marry(); // Trisha 
+
+	}
+}
+
+If we declare any method as final overriding of that method is not possible.
+
+ex:
+---
+class Parent 
+{
+	public void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	//overridden method
+	public final void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Child extends Parent 
+{
+	//overriding method 
+	public void marry()
+	{
+		System.out.println("Trisha");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // Cash+Gold+Land 
+		p.marry(); // Rashmika 
+
+		Child c=new Child();
+		c.property(); // Cash+Gold+Land
+		c.marry(); // Trisha 
+
+		Parent p1=new Child();
+		p1.property();// Cash+Gold+Land
+		p1.marry(); // Trisha 
+
+	}
+}
+
+
+Method Hiding 
+===============
+Method hiding is exactly same as method overriding with following differences.
+
+Method overriding 					Method Hiding 
+------------------					------------------
+Methods must be non-static.				Methods must be static.
+
+Method resolution will taken care by JVM 		Method resolution will taken care by a 
+based on runtime object.				compiler based on reference type.
+
+It is also known as runtime polymorphism, 		It is also known as compile time polymorphism,
+dynamic polymorphism or late binding.			static polymorphism or early binding.
+
+ex:
+--
+class Parent 
+{
+	public static void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	public static void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Child extends Parent 
+{
+	public static void marry()
+	{
+		System.out.println("Trisha");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // Cash+Gold+Land 
+		p.marry(); // Rashmika 
+
+		Child c=new Child();
+		c.property(); // Cash+Gold+Land
+		c.marry(); // Trisha 
+
+		Parent p1=new Child();
+		p1.property();// Cash+Gold+Land
+		p1.marry(); // Rashmika 
+
+	}
+}
+
+Polymorphism 
+===============
+Polymorphism has taken from Greek word.
+
+Here poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+Diagram: java19.1
+
+The main objective of polymorphism is to provide flexibility.
+
+In java, polymorphism is divided into two types.
+
+1) Compile time polymorphism / Static polymorphism / Early binding 
+
+2) Runtime polymorphism / Dynamic polymorphism / Late binding 
+
+1) Compile time polymorphism
+-------------------------
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+ex:
+	Method Overloading 
+
+2) Runtime polymorphism
+-------------------------
+A polymorphism which exhibits at runtime is called runtime polymorphism.
+ex:
+	Method Overriding 
+	Method Hiding 
+
+
+Diagram: java19.2
+
+
+Packages
+=========
+A package is a collection of classes, interfaces , enums and annotations.
+
+Here enum is a special class and annotation is a special interface.
+
+In general, a package is a collection of classes and interfaces.
+
+A package is also known as folder or a directory.
+
+In java, packages are divided into two types.
+
+1) Predefined packages 
+
+2) Userdefined packages 
+
+1) Predefined packages 
+---------------------
+Built-In packages are called predefined packages.
+ex:
+	java.lang
+	java.io
+	java.util
+	java.util.stream
+	java.sql
+	and etc.
+
+2) Userdefined packages
+-------------------------
+Packages which are created by the user based on the application requirements are called userdefind packages.
+
+To declare custom packages we need to use package name.
+
+It is always recommanded to declare a package name in the reverse order of url.
+
+syntax:
+	package  <package_name>;
+
+ex:
+	package  com.google.www;
+	package  com.qualitythought.www;
+
+
+ex:
+---
+package com.ihub.www;
+import java.util.Calendar;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Calendar c=Calendar.getInstance();
+
+		int h = c.get(Calendar.HOUR_OF_DAY);
+
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+
+	}
+}
+
+We can compile above program as follow.
+ex:
+		current directory 
+		      |
+	javac   -d    .    Test.java 
+		|
+	destination folder 
+
+
+We can run above program as follow.
+ex:
+	java  com.ihub.www.Test 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
